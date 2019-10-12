@@ -24,25 +24,32 @@ const App = () => {
             {initialState.mylist.length > 0 &&
                 <Categories title="Mi lista">
                     <Carousel>
-
+                        {initialState.mylist.map(
+                            video => <CarouselItem key={video.id} {...video}/>
+                        )}
                     </Carousel>
                 </Categories>
             }
-            <Categories title="Tendencias">
-                <Carousel>
-                    {
-                        initialState.trends.map(video =>
-                                <CarouselItem key={video.id} {...video}/>
-                            )
-                    }
-                </Carousel>
-            </Categories>
 
+            {initialState.trends.length > 0 &&
+                <Categories title="Tendencias">
+                    <Carousel>
+                        {initialState.trends.map(
+                            video => <CarouselItem key={video.id} {...video}/>
+                        )}
+                    </Carousel>
+                </Categories>
+            }
+
+            {initialState.originals.length > 0 &&
             <Categories title="Originales de Platzi video">
                 <Carousel>
-
+                    {initialState.originals.map(
+                        video => <CarouselItem key={video.id} {...video}/>
+                    )}
                 </Carousel>
             </Categories>
+            }
             <Footer/>
         </div>
     );

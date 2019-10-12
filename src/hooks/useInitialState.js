@@ -3,7 +3,8 @@ import {useState,useEffect} from 'react';
 export default  function useInitialState (API) {
     const initialState = {
         "mylist": [],
-        "trends": []
+        "trends": [],
+        "originals":[]
     };
 
     const [videos,setVideos] = useState(initialState);
